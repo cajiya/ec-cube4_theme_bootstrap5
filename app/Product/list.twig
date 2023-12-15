@@ -82,7 +82,7 @@ file that was distributed with this source code.
       </nav>
     </div>
 
-    <div class="row">
+    <div class="row mb-2">
       <div class="col-9">
         {% if pagination.totalItemCount > 0 %}
           {{ '%count%件の商品が見つかりました'|trans({ '%count%': pagination.totalItemCount })|raw }}
@@ -92,10 +92,12 @@ file that was distributed with this source code.
       </div>
       <div class="col-3">
         {% if pagination.totalItemCount > 0 %}
-          <div class="d-none d-sm-flex">
-            {{ form_widget(disp_number_form, {'id': '', 'attr': {'class': 'form-select me-2 disp-number'}}) }}
-            {{ form_widget(order_by_form, {'id': '', 'attr': {'class': 'form-select order-by'}}) }}
-          </div>
+            <div class="ec-searchnavRole__actions">
+                <div class="ec-select d-none d-sm-flex">
+                    {{ form_widget(search_form.disp_number, {'id': '', 'attr': {'class': 'form-select me-2 disp-number'}}) }}
+                    {{ form_widget(search_form.orderby, {'id': '', 'attr': {'class': 'form-select order-by'}}) }}
+                </div>
+            </div>
         {% endif %}
       </div>
     </div>

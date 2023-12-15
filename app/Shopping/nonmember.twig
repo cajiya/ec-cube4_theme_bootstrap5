@@ -50,21 +50,22 @@ file that was distributed with this source code.
 
 <div class="row max-width-660 mx-sm-auto my-3">
 <div class="col">
-<form method="post" action="{{ url('shopping_nonmember') }}" class="h-adr">
-{{ form_widget(form._token) }}
+  <form method="post" action="{{ url('shopping_nonmember') }}" class="h-adr">
+    <span class="p-country-name" style="display:none;">Japan</span>
+    {{ form_widget(form._token) }}
 
-<div class="mb-3">
-  {{ form_label(form.name, 'お名前', { 'label_attr': { 'class': 'form-label' }}) }}
+    <div class="mb-3">
+      {{ form_label(form.name, 'お名前', { 'label_attr': { 'class': 'form-label' }}) }}
 
-  <div class="{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
-    <div class="input-group">
-      {{ form_widget(form.name.name01, { 'attr': { 'placeholder': '姓', 'class': 'form-control' }}) }}
-      {{ form_widget(form.name.name02, { 'attr': { 'placeholder': '名', 'class': 'form-control' }}) }}
+      <div class="{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
+        <div class="input-group">
+          {{ form_widget(form.name.name01, { 'attr': { 'placeholder': '姓', 'class': 'form-control' }}) }}
+          {{ form_widget(form.name.name02, { 'attr': { 'placeholder': '名', 'class': 'form-control' }}) }}
+        </div>
+        {{ form_errors(form.name.name01) }}
+        {{ form_errors(form.name.name02) }}
+      </div>
     </div>
-    {{ form_errors(form.name.name01) }}
-    {{ form_errors(form.name.name02) }}
-  </div>
-</div>
 
 
     <div class="mb-3">
@@ -91,25 +92,25 @@ file that was distributed with this source code.
 
 
     <div class="mb-3">
-    {{ form_label(form.address, '住所', { 'label_attr': { 'class': 'form-label' }}) }}
+      {{ form_label(form.address, '住所', { 'label_attr': { 'class': 'form-label' }}) }}
       <div class="mb-2 {{ has_errors(form.postal_code) ? ' error' }}">
         <div class="input-group">
           <span class="input-group-text" id="inputZipcode">〒</span>
-          {{ form_widget(form.postal_code, { 'attr': { 'class': 'form-control' }}) }}
+          {{ form_widget(form.postal_code, { 'attr': { 'class': 'form-control p-postal-code' }}) }}
           <span class="input-group-text"><a href="https://www.post.japanpost.jp/zipcode/" target="_blank" class="text-dark text-decoration-none">{{ '郵便番号検索'|trans }}</a></span>
         </div>
         {{ form_errors(form.postal_code) }}
       </div>
       <div class="mb-2 {{ has_errors(form.address.pref) ? ' error' }}">
-        {{ form_widget(form.address.pref, { 'attr': { 'class': 'form-select' }}) }}
+        {{ form_widget(form.address.pref, { 'attr': { 'class': 'form-select p-region-id' }}) }}
         {{ form_errors(form.address.pref) }}
       </div>
       <div class="mb-2 {{ has_errors(form.address.addr01) ? ' error' }}">
-          {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': '市区町村名','class': 'form-control' }}) }}
+          {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': '市区町村名','class': 'form-control p-locality p-street-address' }}) }}
           {{ form_errors(form.address.addr01) }}
       </div>
       <div class="mb-2 {{ has_errors(form.address.addr02) ? ' error' }}">
-          {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': '番地・ビル名','class': 'form-control' }}) }}
+          {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': '番地・ビル名','class': 'form-control p-extended-address' }}) }}
           {{ form_errors(form.address.addr02) }}
       </div>
     </div>
@@ -143,7 +144,7 @@ file that was distributed with this source code.
     </div>
 
 
-</from>
+  </from>
 </div>
 </div>
 

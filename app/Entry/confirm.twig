@@ -88,11 +88,11 @@ file that was distributed with this source code.
   </div>
 
   <div class="mb-3">
-  {{ form_label(form.password, 'パスワード', { 'label_attr': { 'class': 'form-label' }}) }}
+  {{ form_label(form.plain_password, 'パスワード', { 'label_attr': { 'class': 'form-label' }}) }}
     <div class="fs-5">
     ********
-    {{ form_widget(form.password.first, { type : 'hidden' }) }}
-    {{ form_widget(form.password.second, { type : 'hidden' }) }}
+    {{ form_widget(form.plain_password.first, { type : 'hidden' }) }}
+    {{ form_widget(form.plain_password.second, { type : 'hidden' }) }}
     </div>
   </div>
 
